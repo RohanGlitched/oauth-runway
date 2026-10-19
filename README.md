@@ -2,6 +2,8 @@
 
 **How long until your agent's users can connect this app?**
 
+Live: **https://oauth-runway.vercel.app** · Audit of the guides: **https://oauth-runway.vercel.app/how-we-checked**
+
 A developer building an AI agent wants their users to connect an app. Before launch they often have to register their own
 OAuth app with the provider, and sometimes get it reviewed. OAuth Runway turns that unknown into a guide: the hands-on setup
 time, the approval wait, the requirements that trip people up, what to do when blocked, and, for every claim, the evidence
@@ -48,9 +50,12 @@ The live page streams the agent's steps (pages read, live checks, sources) as th
   "bring your own OAuth app". Each guide states which side the app is on, because that decides whether the developer
   needs this guide at all.
 - **App selection.** The library covers different setup paths rather than famous names: instant self-serve (Bitly,
-  DigitalOcean), workspace apps with optional marketplace listing (Webflow), private vs public apps (Pipedrive), partner
-  accounts and distribution choices (Shopify), a sandbox-then-go-live review (DocuSign) and marketplace publishing review
-  (Zoom Team Chat). Gated and paid-API apps were left out on purpose for this slice.
+  DigitalOcean), apps that work in your own workspace but need Marketplace approval for anyone else (Webflow), private apps
+  that go live by link with optional Marketplace review (Pipedrive), a distribution choice you cannot undo (Shopify) and
+  marketplace publishing review (Zoom Team Chat). Gated and paid apps were left out on purpose for this slice.
+- **Research can change the plan.** DocuSign was chosen as a free "sandbox, then go-live" example; the agent found, and a
+  manual check confirmed, that Go-Live needs a paid production account. It was moved out of the library and kept as a
+  generated guide, which is exactly the kind of surprise this tool exists to surface early.
 - **One "what an agent can do vs what only you can do" section** per guide instead of labelling each step: the brief asks
   for it, and a single section reads better than tags on every line.
 - **Safe to leave public.** Live generation is rate limited (3 per visitor per hour, 25 per day overall), finished guides
@@ -62,7 +67,7 @@ The live page streams the agent's steps (pages read, live checks, sources) as th
   real OAuth apps or submit reviews, so console click-paths and review timelines are only as current as the docs.
 - Review durations are rarely published; when no source states one, the guide says so instead of estimating silently.
 - Some documentation sites are rendered by JavaScript; the fetcher falls back to a reader service, which can miss content.
-- The library is a slice (7 apps), not the 100-app target. The same agent run produces each guide; scaling is a batch job
+- The library is a slice (6 apps, plus generated guides), not the 100-app target. The same agent run produces each guide; scaling is a batch job
   plus a periodic re-check.
 
 ## Run it locally
