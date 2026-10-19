@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+.env*
+
+# the template has no secrets
+!.env.example
+
+# local scratch scripts
+*.tmp.*
